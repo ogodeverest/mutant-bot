@@ -1,0 +1,24 @@
+{
+  "name": "mutant-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --no-content-hash --no-source-maps --public-url ./"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.0.0-rc.0",
+    "parcel-bundler": "^1.12.5",
+    "parcel-reporter-static-files-copy": "^1.3.0"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.7",
+    "face-api.js": "^0.22.2",
+    "hammerjs": "^2.0.8",
+    "three": "^0.133.1"
+  }
+}
