@@ -47224,7 +47224,17 @@ function _loadTerrain2(path, manager) {
     _this2.add(gltf.scene);
   });
 }
-},{"three":"../node_modules/three/build/three.module.js","three/examples/jsm/loaders/GLTFLoader":"../node_modules/three/examples/jsm/loaders/GLTFLoader.js"}],"../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
+},{"three":"../node_modules/three/build/three.module.js","three/examples/jsm/loaders/GLTFLoader":"../node_modules/three/examples/jsm/loaders/GLTFLoader.js"}],"dataEndpoint.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var dataEndpoint = "https://mutant-bot-data.firebaseapp.com/";
+var _default = dataEndpoint;
+exports.default = _default;
+},{}],"../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 var define;
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -48013,6 +48023,8 @@ var _Mutant = _interopRequireDefault(require("./objects/Mutant"));
 
 var _Terrain = _interopRequireDefault(require("./objects/Terrain"));
 
+var _dataEndpoint = _interopRequireDefault(require("./dataEndpoint"));
+
 require("regenerator-runtime/runtime");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -48372,7 +48384,7 @@ function _initAudioListener2() {
 function _loadAmbientSound2() {
   var _this = this;
 
-  _classPrivateFieldGet(this, _audioLoader).load("./assets/sounds/ambience.ogg", function (buffer) {
+  _classPrivateFieldGet(this, _audioLoader).load("".concat(_dataEndpoint.default, "sounds/ambience.ogg"), function (buffer) {
     _classPrivateFieldSet(_this, _ambientSound, new _three.Audio(_classPrivateFieldGet(_this, _audioListener)));
 
     _classPrivateFieldGet(_this, _ambientSound).setBuffer(buffer);
@@ -48502,13 +48514,13 @@ function _initHammerManager2() {
 }
 
 function _addTerrain2() {
-  _classPrivateFieldSet(this, _terrain, new _Terrain.default("./assets/terrain/terrain.glb", _classPrivateFieldGet(this, _loadingManager)));
+  _classPrivateFieldSet(this, _terrain, new _Terrain.default("".concat(_dataEndpoint.default, "terrain/terrain.glb"), _classPrivateFieldGet(this, _loadingManager)));
 
   _classPrivateFieldGet(this, _scene).add(_classPrivateFieldGet(this, _terrain));
 }
 
 function _addMutant2() {
-  _classPrivateFieldSet(this, _mutant, new _Mutant.default("./assets/mutant/mutant.glb", _classPrivateFieldGet(this, _loadingManager), _classPrivateFieldGet(this, _audioLoader), _classPrivateFieldGet(this, _audioListener)));
+  _classPrivateFieldSet(this, _mutant, new _Mutant.default("".concat(_dataEndpoint.default, "mutant/mutant.glb"), _classPrivateFieldGet(this, _loadingManager), _classPrivateFieldGet(this, _audioLoader), _classPrivateFieldGet(this, _audioListener)));
 
   _classPrivateFieldGet(this, _scene).add(_classPrivateFieldGet(this, _mutant));
 }
@@ -48556,7 +48568,7 @@ function _render2() {
 
   _classPrivateFieldGet(this, _composer).render();
 }
-},{"three":"../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls":"../node_modules/three/examples/jsm/controls/OrbitControls.js","three/examples/jsm/postprocessing/RenderPass.js":"../node_modules/three/examples/jsm/postprocessing/RenderPass.js","three/examples/jsm/postprocessing/FilmPass.js":"../node_modules/three/examples/jsm/postprocessing/FilmPass.js","three/examples/jsm/postprocessing/EffectComposer.js":"../node_modules/three/examples/jsm/postprocessing/EffectComposer.js","dat.gui":"../node_modules/dat.gui/build/dat.gui.module.js","hammerjs":"../node_modules/hammerjs/hammer.js","./helpers/helperFunctions":"helpers/helperFunctions.js","./helpers/ColorGUIHelper":"helpers/ColorGUIHelper.js","./helpers/MinMaxGUIHelper":"helpers/MinMaxGUIHelper.js","./objects/Mutant":"objects/Mutant.js","./objects/Terrain":"objects/Terrain.js","regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js"}],"index.js":[function(require,module,exports) {
+},{"three":"../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls":"../node_modules/three/examples/jsm/controls/OrbitControls.js","three/examples/jsm/postprocessing/RenderPass.js":"../node_modules/three/examples/jsm/postprocessing/RenderPass.js","three/examples/jsm/postprocessing/FilmPass.js":"../node_modules/three/examples/jsm/postprocessing/FilmPass.js","three/examples/jsm/postprocessing/EffectComposer.js":"../node_modules/three/examples/jsm/postprocessing/EffectComposer.js","dat.gui":"../node_modules/dat.gui/build/dat.gui.module.js","hammerjs":"../node_modules/hammerjs/hammer.js","./helpers/helperFunctions":"helpers/helperFunctions.js","./helpers/ColorGUIHelper":"helpers/ColorGUIHelper.js","./helpers/MinMaxGUIHelper":"helpers/MinMaxGUIHelper.js","./objects/Mutant":"objects/Mutant.js","./objects/Terrain":"objects/Terrain.js","./dataEndpoint":"dataEndpoint.js","regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js"}],"index.js":[function(require,module,exports) {
 "use strict";
 
 var _app = _interopRequireDefault(require("./app"));
@@ -48592,7 +48604,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49466" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63076" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

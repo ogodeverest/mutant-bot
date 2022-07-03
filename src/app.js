@@ -27,6 +27,7 @@ import ColorGUIHelper from "./helpers/ColorGUIHelper";
 import MinMaxGUIHelper from "./helpers/MinMaxGUIHelper";
 import Mutant from "./objects/Mutant";
 import Terrain from "./objects/Terrain";
+import dataEndpoint from "./dataEndpoint";
 import "regenerator-runtime/runtime";
 
 export default class WebGlApp {
@@ -164,7 +165,7 @@ export default class WebGlApp {
   }
 
   #loadAmbientSound() {
-    this.#audioLoader.load("./assets/sounds/ambience.ogg", (buffer) => {
+    this.#audioLoader.load(`${dataEndpoint}sounds/ambience.ogg`, (buffer) => {
       this.#ambientSound = new Audio(this.#audioListener);
       this.#ambientSound.setBuffer(buffer);
       this.#ambientSound.setLoop(true);
@@ -319,7 +320,7 @@ export default class WebGlApp {
 
   #addTerrain() {
     this.#terrain = new Terrain(
-      "./assets/terrain/terrain.glb",
+      `${dataEndpoint}terrain/terrain.glb`,
       this.#loadingManager
     );
     this.#scene.add(this.#terrain);
@@ -327,7 +328,7 @@ export default class WebGlApp {
 
   #addMutant() {
     this.#mutant = new Mutant(
-      "./assets/mutant/mutant.glb",
+      `${dataEndpoint}mutant/mutant.glb`,
       this.#loadingManager,
       this.#audioLoader,
       this.#audioListener
