@@ -28,7 +28,6 @@ import MinMaxGUIHelper from "./helpers/MinMaxGUIHelper";
 import Mutant from "./objects/Mutant";
 import Terrain from "./objects/Terrain";
 import dataEndpoint from "./dataEndpoint";
-import "regenerator-runtime/runtime";
 
 export default class WebGlApp {
   #gui;
